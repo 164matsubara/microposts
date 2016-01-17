@@ -1,4 +1,30 @@
 <h1>
     <%= gravatar_for @user %>
-    <%= @user.name %>
+    </br>
+    </br>
+    
+    
+    <div class="panel panel-primary">
+        <div class="panel-heading">ユーザー名</div>
+        <div class="panel-body"><%= @user.name %></div>
+    </div>
+    </br>
+    <div class="panel panel-primary">
+        <div class="panel-heading">年齢</div>
+        <div class="panel-body"><%= @user.age %></div>
+    </div>
+    </br>
+    <div class="panel panel-primary">
+        <div class="panel-heading">プロフィール</div>
+        <div class="panel-body"><%= @user.profile %></div>
+    </div>
+    </br>
+    <div class="panel panel-primary">
+        <div class="panel-heading">地域</div>
+        <div class="panel-body"><%= @user.area %></div>
+    </div>
+    </br>
+    <% if logged_in? %>
+    <%= link_to "プロフィールを編集する", edit_user_path , class: "btn btn-info" %>
+    <% end %>
 </h1>
