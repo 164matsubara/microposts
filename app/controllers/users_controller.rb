@@ -23,6 +23,9 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       redirect_to @user , notice: 'プロフィールを更新しました'
+    else
+      redirect_to edit_user_path
+      flash[:danger] = 'パスワードが一致しません'
     end
   end
   
