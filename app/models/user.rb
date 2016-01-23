@@ -5,6 +5,11 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
+  validates :area , presence: true,  length: { maximum: 100 }, on: :update
+  validates :age , numericality: { only_integer: true, greater_than_or_equal_to: 0 }, on: :update
+  validates :profile , presence: true, length: { maximum: 200 }, on: :update
+  
+                
   has_secure_password
   has_many :microposts
   has_many :following_relationships, class_name:  "Relationship",
@@ -35,4 +40,5 @@ class User < ActiveRecord::Base
     following_users.include?(other_user)
   end
     
+
 end
