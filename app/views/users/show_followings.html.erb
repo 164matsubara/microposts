@@ -13,12 +13,12 @@
     <%= render 'follow_form' if logged_in? %>
     
     <ul class="nav nav-tabs">
-      <li role="presentation" class="active"><%= link_to "Microposts(#{@user.microposts.count})", "#" %></li>
-      <li role="presentation"><%= link_to "Followings(#{@user.following_users.count})", followings_user_path %></li>
+      <li role="presentation"><%= link_to "Microposts(#{@user.microposts.count})", user_path %></li>
+      <li role="presentation" class="active"><%= link_to "Followings(#{@user.following_users.count})", followings_user_path %></li>
       <li role="presentation"><%= link_to "Followers(#{@user.follower_users.count})", followers_user_path %></li>
     </ul>
       <ol class="microposts">
-        <%= render @microposts %>
+        <%= render 'relationships/follower_followed' %>
       </ol>
    
   </div>
